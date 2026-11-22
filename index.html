@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="google-site-verification" content="HoWofmErOOKMSn8dHeXvBTb5cGoEBEB1rQ7Y3CrUYgY" />
+    <link rel="canonical" href="https://salarytohourlyhub.github.io/" />
+    <meta property="og:url" content="https://salarytohourlyhub.github.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Salary to Hourly Calculator — Convert Annual Salary to Hourly Pay | SalaryToHourlyHub</title>
+    <meta name="description" content="Free salary to hourly calculator. Enter your annual salary, hours per week and weeks per year to get your hourly, daily, weekly, bi-weekly and monthly pay — plus overtime at time-and-a-half. Includes the reverse hourly-to-salary mode and plain-English guides on the 2,080-hour rule, overtime and comparing job offers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SalaryToHourlyHub" />
+    <meta property="og:title" content="Salary to Hourly Calculator | SalaryToHourlyHub" />
+    <meta property="og:description" content="Convert any annual salary into an hourly rate in seconds — with daily, weekly, bi-weekly and monthly breakdowns, an overtime line, and a reverse hourly-to-salary mode." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Salary to Hourly Calculator | SalaryToHourlyHub" />
+    <meta name="twitter:description" content="Convert annual salary to hourly pay, or hourly pay back to a salary. Includes overtime at time-and-a-half and the 2,080-hour rule explained." />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SalaryToHourlyHub",
+      "url": "https://salarytohourlyhub.github.io/",
+      "description": "Free salary to hourly calculator with reverse hourly-to-salary conversion, overtime breakdowns, and plain-English guides on pay conversion.",
+      "inLanguage": "en"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #eef2f7;
+        --surface: #ffffff;
+        --surface-2: #e3eaf3;
+        --ink: #16283f;
+        --ink-soft: #44597a;
+        --line: #c9d4e3;
+        --navy: #0d2b52;
+        --navy-deep: #081e3a;
+        --accent: #17508f;
+        --accent-ink: #ffffff;
+        --gold: #b98a1d;
+        --result-bg: #0d2b52;
+        --result-ink: #ffffff;
+        --result-soft: #b9cbe4;
+        --input-bg: #ffffff;
+        --shadow: 0 10px 30px rgba(13, 43, 82, 0.10);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #081426;
+          --surface: #0e2138;
+          --surface-2: #122a47;
+          --ink: #e7eef7;
+          --ink-soft: #a9bcd4;
+          --line: #26405f;
+          --navy: #0a1f3c;
+          --navy-deep: #051222;
+          --accent: #4d8fd1;
+          --accent-ink: #06182e;
+          --gold: #d9ab3c;
+          --result-bg: #0a1f3c;
+          --result-ink: #ffffff;
+          --result-soft: #9db8d8;
+          --input-bg: #0a1c31;
+          --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 17px;
+        line-height: 1.65;
+      }
+      button, [role="button"], select, summary, input:not([type="checkbox"], [type="radio"]) { min-height: 2.25rem; }
+      a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+      a:hover { text-decoration-thickness: 2px; }
+
+      /* ---------- Header / nav ---------- */
+      .site-header {
+        background: var(--navy);
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      }
+      .header-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .brand {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-weight: 700;
+        font-size: 1.35rem;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 0;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+      }
+      .brand span { color: var(--gold); }
+      .main-nav { display: flex; flex-wrap: wrap; gap: 2px; margin-left: auto; }
+      .main-nav a {
+        color: #d7e3f2;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 10px 12px;
+        border-radius: 6px;
+        min-height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
+      }
+      .main-nav a:hover, .main-nav a.active { background: rgba(255,255,255,0.14); color: #fff; }
+
+      /* ---------- Layout ---------- */
+      .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px 64px; }
+      .prose { max-width: 780px; }
+      .prose p { margin: 0 0 1.05em; }
+      .prose h2, .article h2 {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 1.65rem;
+        line-height: 1.25;
+        color: var(--navy);
+        margin: 1.6em 0 0.55em;
+      }
+      @media (prefers-color-scheme: dark) {
+        .prose h2, .article h2 { color: #cfe0f2; }
+      }
+      .prose h3, .article h3 {
+        font-size: 1.18rem;
+        margin: 1.4em 0 0.45em;
+        color: var(--ink);
+      }
+      .prose ul, .article ul { margin: 0 0 1.05em; padding-left: 1.3em; }
+      .prose li, .article li { margin-bottom: 0.4em; }
+      .page { display: none; }
+      .page.active { display: block; }
+
+      /* ---------- Hero / tool ---------- */
+      .hero { padding: 40px 0 8px; max-width: 860px; }
+      .hero h1 {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: clamp(1.9rem, 4.6vw, 2.7rem);
+        line-height: 1.15;
+        margin: 0 0 14px;
+        color: var(--navy);
+      }
+      @media (prefers-color-scheme: dark) { .hero h1 { color: #eaf2fb; } }
+      .hero p.lede { font-size: 1.12rem; color: var(--ink-soft); margin: 0 0 8px; max-width: 720px; }
+
+      .tool {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        padding: 26px;
+        margin: 26px 0 10px;
+      }
+      .mode-toggle { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+      .mode-toggle button {
+        flex: 1 1 220px;
+        font: inherit;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 12px 16px;
+        border-radius: 8px;
+        border: 2px solid var(--accent);
+        background: transparent;
+        color: var(--accent);
+        cursor: pointer;
+        min-height: 3rem;
+      }
+      .mode-toggle button.selected { background: var(--accent); color: var(--accent-ink); }
+      .tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      @media (max-width: 720px) { .tool-grid { grid-template-columns: 1fr; } }
+      .field label { display: block; font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+      .field .hint { font-size: 0.83rem; color: var(--ink-soft); margin-top: 5px; }
+      .input-wrap { position: relative; }
+      .input-wrap .prefix {
+        position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+        color: var(--ink-soft); font-weight: 600; pointer-events: none;
+      }
+      .field input {
+        width: 100%;
+        font: inherit;
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 11px 12px 11px 30px;
+        border: 1.5px solid var(--line);
+        border-radius: 8px;
+        background: var(--input-bg);
+        color: var(--ink);
+      }
+      .field input.no-prefix { padding-left: 12px; }
+      .field input:focus { outline: 3px solid rgba(77, 143, 209, 0.45); border-color: var(--accent); }
+
+      .results {
+        margin-top: 24px;
+        background: var(--result-bg);
+        color: var(--result-ink);
+        border-radius: 10px;
+        padding: 22px 24px;
+      }
+      .results .headline { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px; margin-bottom: 14px; }
+      .results .headline .big {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 700;
+        line-height: 1;
+      }
+      .results .headline .big-label { color: var(--result-soft); font-weight: 600; font-size: 1rem; }
+      .result-rows { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 28px; }
+      @media (max-width: 560px) { .result-rows { grid-template-columns: 1fr; } }
+      .result-row {
+        display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+        padding: 9px 0; border-top: 1px solid rgba(255,255,255,0.16);
+      }
+      .result-row .rlabel { color: var(--result-soft); font-size: 0.95rem; }
+      .result-row .rvalue { font-weight: 700; font-size: 1.08rem; white-space: nowrap; }
+      .ot-line {
+        margin-top: 16px;
+        background: rgba(217, 171, 60, 0.14);
+        border: 1px solid rgba(217, 171, 60, 0.55);
+        border-radius: 8px;
+        padding: 13px 16px;
+        font-size: 0.98rem;
+      }
+      .ot-line strong { color: var(--gold); }
+      .tool-note { font-size: 0.88rem; color: var(--ink-soft); margin-top: 14px; }
+
+      /* ---------- Sections / article ---------- */
+      .section { padding-top: 26px; }
+      .article { padding-top: 34px; }
+      .article h1, .plain-page h1 {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: clamp(1.8rem, 4.4vw, 2.5rem);
+        line-height: 1.18;
+        color: var(--navy);
+        margin: 0 0 10px;
+      }
+      @media (prefers-color-scheme: dark) { .article h1, .plain-page h1 { color: #eaf2fb; } }
+      .article .standfirst { font-size: 1.1rem; color: var(--ink-soft); margin-bottom: 22px; }
+      .formula {
+        background: var(--surface-2);
+        border-radius: 8px;
+        padding: 16px 20px;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 1.12rem;
+        margin: 18px 0;
+      }
+      .guide-list { list-style: none; padding: 0; margin: 8px 0 0; }
+      .guide-list li { padding: 14px 0; border-top: 1px solid var(--line); }
+      .guide-list a { font-weight: 700; font-size: 1.08rem; }
+      .guide-list p { margin: 4px 0 0; color: var(--ink-soft); font-size: 0.97rem; }
+      table.ref {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 640px;
+        margin: 18px 0;
+        font-size: 0.98rem;
+      }
+      table.ref th, table.ref td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); }
+      table.ref th { background: var(--surface-2); font-weight: 700; }
+      table.ref td.num, table.ref th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+      details.faq {
+        border-top: 1px solid var(--line);
+        padding: 6px 0;
+      }
+      details.faq summary {
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.05rem;
+        padding: 12px 4px;
+        display: flex;
+        align-items: center;
+      }
+      details.faq p { margin: 0 4px 14px; color: var(--ink); max-width: 760px; }
+      .contact-box {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 22px 24px;
+        max-width: 640px;
+        margin-top: 18px;
+      }
+      .contact-box .mail-link { font-size: 1.15rem; font-weight: 700; }
+
+      /* ---------- Footer ---------- */
+      .site-footer {
+        background: var(--navy-deep);
+        color: #c3d3e8;
+        margin-top: 70px;
+      }
+      .footer-inner {
+        max-width: 1120px; margin: 0 auto; padding: 38px 20px 30px;
+        display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px;
+      }
+      @media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; } }
+      .footer-inner h4 { color: #fff; margin: 0 0 10px; font-size: 1rem; }
+      .footer-inner a { color: #c3d3e8; text-decoration: none; display: inline-block; padding: 4px 0; min-height: 2rem; }
+      .footer-inner a:hover { color: #fff; text-decoration: underline; }
+      .footer-inner ul { list-style: none; margin: 0; padding: 0; }
+      .footer-inner p { margin: 0; font-size: 0.93rem; }
+      .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.15);
+        max-width: 1120px; margin: 0 auto; padding: 16px 20px 22px;
+        font-size: 0.88rem; color: #93a9c6;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#/">SalaryToHourly<span>Hub</span></a>
+        <nav class="main-nav" aria-label="Main">
+          <a href="#/" data-nav="home">Calculator</a>
+          <a href="#/guides" data-nav="guides">Guides</a>
+          <a href="#/about" data-nav="about">About</a>
+          <a href="#/faq" data-nav="faq">FAQ</a>
+          <a href="#/contact" data-nav="contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap">
+
+      <!-- ================= HOME ================= -->
+      <main class="page" id="page-home">
+        <section class="hero">
+          <h1>Salary to Hourly Calculator</h1>
+          <p class="lede">Type in a yearly salary and see exactly what it works out to per hour, per day, per week, every two weeks and per month. Switch the tool around to turn an hourly wage back into an annual salary — and see what your extra hours are worth at overtime rates.</p>
+        </section>
+
+        <section class="tool" aria-label="Salary to hourly calculator">
+          <div class="mode-toggle" role="group" aria-label="Conversion direction">
+            <button type="button" id="mode-salary" class="selected">Salary &rarr; Hourly</button>
+            <button type="button" id="mode-hourly">Hourly &rarr; Salary</button>
+          </div>
+
+          <div class="tool-grid">
+            <div class="field" id="field-primary">
+              <label for="input-primary" id="label-primary">Annual salary (before tax)</label>
+              <div class="input-wrap">
+                <span class="prefix">$</span>
+                <input type="number" id="input-primary" value="60000" min="0" step="any" inputmode="decimal" />
+              </div>
+              <div class="hint" id="hint-primary">Your gross yearly pay, before taxes and deductions.</div>
+            </div>
+            <div class="field">
+              <label for="input-hours">Hours worked per week</label>
+              <div class="input-wrap">
+                <input type="number" class="no-prefix" id="input-hours" value="40" min="1" max="168" step="any" inputmode="decimal" />
+              </div>
+              <div class="hint">40 is the standard full-time week. Anything above 40 counts as overtime below.</div>
+            </div>
+            <div class="field">
+              <label for="input-weeks">Weeks worked per year</label>
+              <div class="input-wrap">
+                <input type="number" class="no-prefix" id="input-weeks" value="52" min="1" max="52" step="any" inputmode="decimal" />
+              </div>
+              <div class="hint">52 if you are paid all year. Use 50 if you take two unpaid weeks off, for example.</div>
+            </div>
+          </div>
+
+          <div class="results" aria-live="polite">
+            <div class="headline">
+              <span class="big" id="result-headline">$28.85</span>
+              <span class="big-label" id="result-headline-label">per hour</span>
+            </div>
+            <div class="result-rows">
+              <div class="result-row"><span class="rlabel">Hourly rate</span><span class="rvalue" id="r-hourly">—</span></div>
+              <div class="result-row"><span class="rlabel">Daily pay</span><span class="rvalue" id="r-daily">—</span></div>
+              <div class="result-row"><span class="rlabel">Weekly pay</span><span class="rvalue" id="r-weekly">—</span></div>
+              <div class="result-row"><span class="rlabel">Bi-weekly pay</span><span class="rvalue" id="r-biweekly">—</span></div>
+              <div class="result-row"><span class="rlabel">Monthly pay</span><span class="rvalue" id="r-monthly">—</span></div>
+              <div class="result-row"><span class="rlabel">Annual pay</span><span class="rvalue" id="r-annual">—</span></div>
+            </div>
+            <div class="ot-line" id="ot-line"></div>
+          </div>
+          <p class="tool-note">All figures are gross pay before tax. Daily pay assumes a five-day working week. The overtime line uses time-and-a-half (1.5&times; your hourly rate) for hours beyond 40 per week — read our guide to <a href="#/guide/overtime-pay-explained">how overtime pay works</a> for the details.</p>
+        </section>
+
+        <section class="section prose">
+          <h2>How the conversion math works</h2>
+          <p>Converting a salary into an hourly rate is one division problem wearing a disguise. A salary is a lump sum for a year of work, so to find the hourly rate you divide that lump sum by the number of hours you actually work in the year. The hours are the part people get wrong, because a "year of work" is not a fixed number — it depends on your schedule.</p>
+          <p>The full working-hours figure is built from two numbers: the hours you work in a typical week, and the number of weeks you work in a year. Multiply them together and you have your total annual hours. A full-time employee working 40 hours a week for 52 weeks works 40 &times; 52 = 2,080 hours, which is where the famous shortcut comes from. Our step-by-step guide to <a href="#/guide/convert-salary-to-hourly-formula">how to convert salary to hourly, with the full formula</a>, walks through worked examples at several salary levels so you can check the arithmetic yourself.</p>
+          <div class="formula">Hourly rate = Annual salary &divide; (Hours per week &times; Weeks per year)</div>
+          <p>Once you have the hourly rate, every other figure on this page falls out of it. Daily pay is the hourly rate times the hours in your working day. Weekly pay is the salary divided by the weeks you work. Bi-weekly pay is simply two weeks together — which is why a bi-weekly paycheck is not the same as half a month's pay. Monthly pay is the annual salary divided by twelve, and because months are longer than four weeks, a monthly figure is always a little larger than two bi-weekly paychecks combined across the year. There are 26 bi-weekly pay periods in a year but only 24 half-months, and that small difference surprises a lot of people when they compare a new job's pay schedule with their old one.</p>
+          <p>The calculator above runs the same math in reverse, too. If a job advertises an hourly wage and you want to know what that means per year — for comparing it against a salaried offer, or for a mortgage application that asks for annual income — enter the hourly rate, your weekly hours and your working weeks, and it multiplies them back up into daily, weekly, bi-weekly, monthly and annual figures.</p>
+
+          <h2>The 2,080-hour rule, and when it misleads you</h2>
+          <p>Ask a room of payroll professionals how to turn a salary into an hourly rate and most will give you the same answer: divide by 2,080. That number is just 40 hours a week times 52 weeks, and it has become the default assumption in offer letters, government pay tables and back-of-envelope calculations everywhere. There is even a mental shortcut built on it — to estimate an hourly rate, take the salary in thousands and halve it. A $60,000 salary becomes roughly $30 an hour; a $85,000 salary becomes roughly $42.50. It is fast, and for a standard full-time schedule it is close enough.</p>
+          <p>But the rule quietly assumes things that are not true for everyone. It assumes you work all 52 weeks, that your week is exactly 40 hours, and that every one of those hours is paid at the same rate. If you take three weeks of unpaid leave, your real working year is 49 weeks — 1,960 hours — and your true hourly rate is higher than the 2,080 figure suggests. If you regularly work 45-hour weeks on a fixed salary, your effective hourly rate is lower, because the same salary is spread across 2,340 hours. Our full explainer on <a href="#/guide/2080-hour-rule">what the 2,080-hour rule is and when to adjust it</a> goes through the common situations where you should change the denominator before you trust the answer.</p>
+          <p>This is exactly why the calculator asks for your hours and weeks instead of silently assuming 2,080. A teacher paid over twelve months but working a school year, a seasonal worker with a 40-week year, a nurse on 36-hour weeks — each of them gets a misleading answer from the shortcut and a correct one from the full formula.</p>
+
+          <h2>Salary vs hourly pay: the honest pros and cons</h2>
+          <p>Neither pay type is simply "better" — they trade predictability against flexibility, and which side of that trade suits you depends on your expenses, your industry and how much your hours vary. A salary pays the same amount every pay period whether the week was quiet or frantic. That steadiness makes budgeting, rent and loan payments easier, and salaried roles more often come with paid vacation, employer health coverage and retirement contributions. The catch is that extra hours are usually unpaid: when a project runs late, the salaried employee's effective hourly rate quietly falls.</p>
+          <p>Hourly pay flips that arrangement. Every hour worked is an hour paid, and hours beyond 40 in a week generally earn overtime at time-and-a-half for non-exempt workers, which can lift earnings well above the base rate in busy seasons. The trade-off is that income moves with the schedule — a slow month, a cut shift or unpaid time off between contracts shows up directly in your paycheck. We compare the two arrangements in depth, with the questions worth asking before you choose, in <a href="#/guide/salary-vs-hourly-pay">salary vs hourly pay: which is better for you?</a></p>
+          <p>One point that is easy to miss: the label on the offer is not the whole story. A slightly lower salary with generous paid time off can be worth more per hour actually worked than a higher salary at a company where 50-hour weeks are normal. Running both offers through this calculator with realistic hours — not the hours in the job posting — is the fastest way to see that clearly.</p>
+
+          <h2>How to compare a job offer that pays differently</h2>
+          <p>Comparing a $72,000 salary against a $36-an-hour contract is not a comparison at all until both numbers are in the same units. The method is straightforward: convert both offers to an effective hourly rate using your realistic working hours, convert both to an annual figure, then adjust for the things the headline number hides — paid time off, overtime eligibility, benefits, bonuses and commuting costs. A contract rate that looks higher often shrinks once you account for unpaid holidays and the benefits a salaried role includes.</p>
+          <p>Our worked guide on <a href="#/guide/compare-two-job-offers">how to compare two job offers with different pay types</a> takes two realistic offers and runs the full comparison step by step, including the overtime question: whether the hourly role's extra hours are paid at time-and-a-half changes the answer by thousands of dollars a year. If you want the rules behind that line of the calculator first, start with <a href="#/guide/overtime-pay-explained">overtime pay explained: time-and-a-half and double time</a>.</p>
+
+          <h2>Quick reference: common salaries as hourly rates</h2>
+          <p>The table below uses the standard full-time year — 40 hours a week, 52 weeks, 2,080 hours — so you can sanity-check the calculator's output or estimate a rate in your head.</p>
+          <table class="ref">
+            <thead>
+              <tr><th>Annual salary</th><th class="num">Hourly rate</th><th class="num">Monthly pay</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>$30,000</td><td class="num">$14.42</td><td class="num">$2,500</td></tr>
+              <tr><td>$40,000</td><td class="num">$19.23</td><td class="num">$3,333</td></tr>
+              <tr><td>$50,000</td><td class="num">$24.04</td><td class="num">$4,167</td></tr>
+              <tr><td>$60,000</td><td class="num">$28.85</td><td class="num">$5,000</td></tr>
+              <tr><td>$75,000</td><td class="num">$36.06</td><td class="num">$6,250</td></tr>
+              <tr><td>$100,000</td><td class="num">$48.08</td><td class="num">$8,333</td></tr>
+              <tr><td>$125,000</td><td class="num">$60.10</td><td class="num">$10,417</td></tr>
+              <tr><td>$150,000</td><td class="num">$72.12</td><td class="num">$12,500</td></tr>
+            </tbody>
+          </table>
+          <p>Notice the pattern: at 2,080 hours, the hourly rate is always close to half the salary expressed in thousands. It is a handy estimate, but remember it assumes no unpaid time off and no regular overtime — adjust the weeks and hours in the calculator when your situation differs.</p>
+
+          <h2>Guides that go deeper</h2>
+          <ul class="guide-list">
+            <li>
+              <a href="#/guide/convert-salary-to-hourly-formula">How to Convert Salary to Hourly: The Formula</a>
+              <p>The full method, worked examples at $45,000, $68,000 and $92,000, and the mistakes that throw the answer off.</p>
+            </li>
+            <li>
+              <a href="#/guide/2080-hour-rule">What Is the 2,080-Hour Rule?</a>
+              <p>Where 2,080 comes from, why payroll teams rely on it, and the schedules where you should use a different number.</p>
+            </li>
+            <li>
+              <a href="#/guide/salary-vs-hourly-pay">Salary vs Hourly Pay: Which Is Better for You?</a>
+              <p>Predictability against flexibility, overtime eligibility, benefits and the questions to ask before choosing.</p>
+            </li>
+            <li>
+              <a href="#/guide/compare-two-job-offers">How to Compare Two Job Offers with Different Pay Types</a>
+              <p>A step-by-step method with a full worked example, including paid time off, benefits and overtime.</p>
+            </li>
+            <li>
+              <a href="#/guide/overtime-pay-explained">Overtime Pay Explained: Time-and-a-Half and Double Time</a>
+              <p>How the 1.5&times; and 2&times; rates are calculated, who qualifies, and how overtime changes an annual figure.</p>
+            </li>
+          </ul>
+          <p style="margin-top:22px;">Still have a question the guides don't cover? The <a href="#/faq">frequently asked questions</a> page answers the ones we hear most, and you can always <a href="#/contact">get in touch</a> or read more <a href="#/about">about how SalaryToHourlyHub works</a>.</p>
+        </section>
+      </main>
+
+      <!-- ================= GUIDES INDEX ================= -->
+      <main class="page" id="page-guides">
+        <section class="article prose">
+          <h1>Pay Conversion Guides</h1>
+          <p class="standfirst">Five long, plain-English guides that explain everything the calculator does — and everything it can't do for you, like judging which of two job offers is actually worth more.</p>
+          <ul class="guide-list">
+            <li>
+              <a href="#/guide/convert-salary-to-hourly-formula">How to Convert Salary to Hourly: The Formula</a>
+              <p>The full method step by step, worked examples at three salary levels, the reverse calculation, and the five mistakes that most often throw the answer off.</p>
+            </li>
+            <li>
+              <a href="#/guide/2080-hour-rule">What Is the 2,080-Hour Rule?</a>
+              <p>Where the 2,080 figure comes from, the mental shortcut built on it, and the schedules — part-time, seasonal, unpaid leave — where you should use a different denominator.</p>
+            </li>
+            <li>
+              <a href="#/guide/salary-vs-hourly-pay">Salary vs Hourly Pay: Which Is Better for You?</a>
+              <p>An honest comparison of predictability, overtime, benefits and risk, plus the questions worth asking an employer before you decide.</p>
+            </li>
+            <li>
+              <a href="#/guide/compare-two-job-offers">How to Compare Two Job Offers with Different Pay Types</a>
+              <p>A five-step method and a complete worked example comparing a salaried offer against an hourly contract, adjusted for time off, benefits and overtime.</p>
+            </li>
+            <li>
+              <a href="#/guide/overtime-pay-explained">Overtime Pay Explained: Time-and-a-Half and Double Time</a>
+              <p>How premium rates are calculated, who is entitled to them, how blended rates work, and what overtime does to an annual salary figure.</p>
+            </li>
+          </ul>
+          <p style="margin-top:22px;">Want to run the numbers first? Head back to the <a href="#/">salary to hourly calculator</a> and bring the results with you.</p>
+        </section>
+      </main>
+
+      <!-- ================= ARTICLE 1 ================= -->
+      <main class="page" id="page-guide-convert">
+        <article class="article prose">
+          <h1>How to Convert Salary to Hourly: The Formula</h1>
+          <p class="standfirst">One division, two inputs, and a handful of traps. Here is the complete method for turning an annual salary into an hourly rate — and back again — with worked examples you can check by hand.</p>
+
+          <h2>The formula</h2>
+          <p>An hourly rate is a salary spread evenly across the hours you work in a year. So the conversion needs two things: the salary itself, and an honest count of your annual working hours. Annual hours are your weekly hours multiplied by the weeks you work in a year:</p>
+          <div class="formula">Annual hours = Hours per week &times; Weeks per year<br />Hourly rate = Annual salary &divide; Annual hours</div>
+          <p>For a standard full-time job — 40 hours a week, 52 weeks a year — annual hours come to 2,080, and the formula becomes the familiar "divide the salary by 2,080." That shortcut is covered in depth in our guide to <a href="#/guide/2080-hour-rule">the 2,080-hour rule</a>. The general formula matters because most people do not work the standard pattern exactly, and small errors in the hours become real errors in the rate.</p>
+
+          <h2>Worked example 1: a $45,000 salary</h2>
+          <p>Take a salary of $45,000, a 40-hour week and a 52-week year. Annual hours are 40 &times; 52 = 2,080. Divide: $45,000 &divide; 2,080 = $21.63 per hour, rounded to the nearest cent. From there the rest follows: a day of eight hours pays $173.08, a week pays $865.38, a bi-weekly paycheck is $1,730.77, and a month averages $3,750.</p>
+          <p>Try it in the <a href="#/">salary to hourly calculator</a> and you will see the same figures. The point of doing one example by hand is not the arithmetic — it is knowing which numbers the tool is dividing, so you can spot when an input doesn't match your real schedule.</p>
+
+          <h2>Worked example 2: a $68,000 salary with unpaid leave</h2>
+          <p>Now suppose the salary is $68,000, the week is still 40 hours, but you take three weeks of unpaid leave each year. Your paid working weeks are 49, not 52, so annual hours are 40 &times; 49 = 1,960. The rate is $68,000 &divide; 1,960 = $34.69 per hour. Compare that with the naive shortcut: $68,000 &divide; 2,080 = $32.69. The shortcut understates your rate by two dollars an hour — a difference that matters if you are using the figure to price freelance work or to judge an hourly job offer against your current role.</p>
+
+          <h2>Worked example 3: a $92,000 salary on long weeks</h2>
+          <p>The error runs the other way when the working week is longer than 40 hours. A $92,000 salary with regular 45-hour weeks across 52 weeks means 2,340 annual hours, and an effective rate of $92,000 &divide; 2,340 = $39.32 per hour — not the $44.23 the standard shortcut suggests. Nothing about the pay changed; the same money is simply spread across more hours. This is the single most common reason a "higher" salary turns out to pay less per hour than the job it replaced, and it is why our guide on <a href="#/guide/compare-two-job-offers">comparing two job offers</a> insists on realistic hours rather than the hours printed in the job advertisement.</p>
+
+          <h2>The reverse: hourly rate to annual salary</h2>
+          <p>Going the other way is the same formula rearranged. Multiply the hourly rate by weekly hours, then by working weeks:</p>
+          <div class="formula">Annual salary = Hourly rate &times; Hours per week &times; Weeks per year</div>
+          <p>A wage of $25 an hour at 40 hours a week for 52 weeks gives $25 &times; 40 &times; 52 = $52,000 a year. Drop the weeks to 48 — say the work is a contract with a month unpaid between engagements — and the same wage is worth $48,000. The hourly figure did not move, but the annual figure moved by $4,000, which is why annualizing an hourly wage always needs the weeks question answered honestly.</p>
+
+          <h2>Deriving daily, weekly, bi-weekly and monthly pay</h2>
+          <p>Once the hourly rate is fixed, the other pay periods are simple multiplications and divisions. Weekly pay is the salary divided by working weeks. Bi-weekly pay is two weeks. Monthly pay is the salary divided by twelve. Daily pay is the hourly rate times the hours in your working day — eight for a 40-hour, five-day week, but six-and-a-half for a 32.5-hour week, which is why the calculator derives the day length from your weekly hours rather than assuming eight.</p>
+          <p>One wrinkle worth knowing: monthly and bi-weekly pay do not reconcile neatly. There are 26 bi-weekly periods in a year and 12 monthly ones, so two bi-weekly paychecks are slightly less than one monthly paycheck. Over a year they total the same salary, but month to month the cash flow feels different — two months a year contain three bi-weekly paychecks, which hourly and bi-weekly workers often treat as a small bonus for savings or debt payments.</p>
+
+          <h2>Five mistakes that throw the answer off</h2>
+          <p><strong>Using 52 weeks when some are unpaid.</strong> Paid weeks are what count for the denominator if your salary already excludes the unpaid time — and if it doesn't, the weeks question needs care either way. Match the hours to the pay.</p>
+          <p><strong>Counting scheduled hours instead of worked hours.</strong> A "40-hour week" that routinely runs to 47 hours changes the effective rate substantially, as example 3 showed.</p>
+          <p><strong>Mixing gross and net pay.</strong> This conversion is always done on gross (pre-tax) figures. Converting a take-home amount produces a rate that cannot be compared with advertised wages, which are always quoted gross.</p>
+          <p><strong>Forgetting overtime.</strong> If hours beyond 40 are paid at time-and-a-half, a single flat rate misstates earnings. Our guide to <a href="#/guide/overtime-pay-explained">overtime pay</a> shows how to fold premium hours into the calculation.</p>
+          <p><strong>Rounding too early.</strong> Round the final rate to cents, not the intermediate hours. Rounding 2,080 hours is harmless; rounding a rate like $21.6346 to $21.60 before multiplying it back across a year quietly loses about $72.</p>
+
+          <h2>The bottom line</h2>
+          <p>The formula itself is trivial — salary divided by annual hours. All the accuracy lives in the hours: your real weekly hours, your real paid weeks. Get those two numbers right and any tool, including <a href="#/">the calculator on this site</a>, will give you a rate you can trust. Get them wrong and even perfect arithmetic produces a confident, precise, wrong answer.</p>
+        </article>
+      </main>
+
+      <!-- ================= ARTICLE 2 ================= -->
+      <main class="page" id="page-guide-2080">
+        <article class="article prose">
+          <h1>What Is the 2,080-Hour Rule?</h1>
+          <p class="standfirst">Divide by 2,080 — it is the most repeated instruction in payroll. Here is where the number comes from, why it stuck, and the working patterns where it gives you the wrong hourly rate.</p>
+
+          <h2>Where 2,080 comes from</h2>
+          <p>The number is not a law, a standard or a statistic. It is a multiplication: a standard full-time week of 40 hours, worked for all 52 weeks of the year, totals 40 &times; 52 = 2,080 hours. Because so much full-time employment in the United States follows exactly that pattern, 2,080 became the default bridge between the two ways pay is quoted. Employers who think in salaries use it to state an hourly equivalent; employees who think in hourly wages use it to annualize an offer; government pay tables use it to keep thousands of grades and steps consistent with each other.</p>
+          <p>Its convenience is real. One fixed denominator means every salary converts the same way, comparisons are apples-to-apples, and nobody has to interrogate each individual's schedule before doing the math. For a workforce of standard full-time employees, it is accurate. The problems start when the workforce — or your own job — is not standard.</p>
+
+          <h2>The mental shortcut built on it</h2>
+          <p>Dividing by 2,080 is close to dividing by 2,000 and adjusting slightly, which produces the well-known rule of thumb: <em>an hourly rate is roughly half the salary in thousands.</em> A $50,000 salary is about $25 an hour (exactly $24.04); $80,000 is about $40 (exactly $38.46); $120,000 is about $60 (exactly $57.69). The shortcut always overstates the rate a little, because 2,000 is a smaller denominator than 2,080, but it is close enough for judging whether an offer is in the right ballpark during a conversation. For anything you will sign, run the exact division — the <a href="#/">calculator</a> does it in one step.</p>
+
+          <h2>When the rule misleads: unpaid time</h2>
+          <p>The rule assumes all 52 weeks are worked and paid. Salaried employees with paid vacation still fit the rule, because their salary covers the vacation weeks — the pay and the 2,080-hour denominator describe the same year. The rule breaks when time off is unpaid. A contractor paid a $78,000 "annual" figure who takes four unpaid weeks works 48 weeks — 1,920 hours — and their rate is $40.63, not the $37.50 the rule gives. Using 2,080 understates the rate by more than three dollars an hour, enough to misprice a freelance quote built on top of it.</p>
+
+          <h2>When the rule misleads: part-time and compressed schedules</h2>
+          <p>Part-time schedules break the numerator, not just the denominator. A 30-hour week across 52 weeks is 1,560 hours; a 36-hour week, common in healthcare, is 1,872. Compressed schedules — four ten-hour days, or the 9/80 pattern of 80 hours across nine working days in two weeks — keep the annual total near 2,080 but change the daily rate, because a "day" of work is ten hours rather than eight. Anyone converting a salary to a <em>daily</em> rate for consulting or per-diem work needs the day length right, which is why the calculator derives it from your weekly hours instead of assuming eight.</p>
+
+          <h2>When the rule misleads: long salaried weeks</h2>
+          <p>The subtlest failure is the salaried job whose real week is not 40 hours. If the salary is fixed but the week routinely runs to 45 or 50 hours, the effective hourly rate falls well below the 2,080 figure: $90,000 over 50-hour weeks (2,600 hours) is $34.62 an hour, not $43.27. Nobody's paycheck changes — but anyone comparing that job against an hourly offer using the shortcut will reach the wrong conclusion. This scenario is the heart of our guide to <a href="#/guide/salary-vs-hourly-pay">salary vs hourly pay</a>, because overtime eligibility is precisely what protects hourly workers from this dilution.</p>
+
+          <h2>Choosing your own denominator</h2>
+          <p>The fix is never complicated: replace 2,080 with your own annual hours. Multiply your typical weekly hours by the weeks you actually work for pay. Teachers on a school calendar might use 40 weeks. Seasonal workers might use 44. Someone with a 37.5-hour contract week and two unpaid weeks uses 37.5 &times; 50 = 1,875. The formula from our guide on <a href="#/guide/convert-salary-to-hourly-formula">converting salary to hourly</a> accepts any of these — 2,080 is just its most common input, not a requirement.</p>
+
+          <h2>Why employers still quote it</h2>
+          <p>If the rule is so approximate, why does it persist? Because most of its uses are administrative rather than personal. Budgeting a position, setting a pay band, publishing a salary range — these need one consistent assumption applied to everyone, and 2,080 is the assumption everyone already shares. The rule is a fine common language. It only becomes a problem when an individual treats the administrative figure as a personal truth about their own schedule. Use 2,080 to speak the employer's language; use your real hours to make your own decisions.</p>
+        </article>
+      </main>
+
+      <!-- ================= ARTICLE 3 ================= -->
+      <main class="page" id="page-guide-salary-vs-hourly">
+        <article class="article prose">
+          <h1>Salary vs Hourly Pay: Which Is Better for You?</h1>
+          <p class="standfirst">The same annual money can feel completely different depending on how it is paid. An honest comparison of the two arrangements — predictability, overtime, benefits, risk — and the questions that reveal which one fits your life.</p>
+
+          <h2>The core trade: predictability against flexibility</h2>
+          <p>Strip away the details and the choice is this: a salary sells your employer a fixed block of your time for a fixed amount of money, while hourly pay rents your time by the unit. The salary's great virtue is steadiness. The paycheck is identical in a frantic month and a quiet one, through holidays and sick days, which makes rent, loan payments and savings plans easy to set and forget. The hourly arrangement's great virtue is that the meter is always running in your favor: more hours means more money, and hours past 40 in a week are typically paid at a premium.</p>
+          <p>Neither virtue is free. The salaried employee's steadiness is paid for with unpaid extra hours — the deadline week, the evening email, the business trip that consumes a weekend — none of which add a cent. The hourly employee's premium hours are paid for with exposure: when work slows, shifts are cut or a contract pauses, income falls immediately, and time off is usually unpaid time off.</p>
+
+          <h2>Overtime: the biggest single difference</h2>
+          <p>For non-exempt employees — most hourly workers, and some salaried ones below a pay threshold — hours beyond 40 in a week must be paid at no less than time-and-a-half. In a busy season, that premium is not a footnote; a worker at $22 an hour who regularly works ten overtime hours a week earns an extra $330 weekly, over $15,000 across a working year, on top of a base that annualizes to about $45,760. Salaried exempt employees in the same building, working the same long weeks, receive nothing extra, and their effective hourly rate sinks with every additional hour. Our explainer on <a href="#/guide/overtime-pay-explained">how overtime pay works</a> covers who qualifies and how the premium is calculated.</p>
+          <p>This cuts both ways in negotiations. An hourly offer at a modest rate can quietly out-earn a salary in an overtime-heavy workplace, while a salary can be the better deal in a workplace with a genuine 40-hour culture. The deciding evidence is the real schedule, which is why converting both offers with realistic hours — as our <a href="#/guide/compare-two-job-offers">job offer comparison guide</a> demonstrates — matters more than the headline numbers.</p>
+
+          <h2>Benefits and paid time off</h2>
+          <p>Pay type and benefits are not legally welded together, but in practice they travel as a pair. Salaried roles more commonly include employer-subsidized health coverage, retirement plan contributions, paid vacation and paid sick leave. Each of those has a cash value that never appears in the salary figure: an employer's health premium contribution and retirement match can together be worth several thousand dollars a year, and three weeks of paid vacation is, in effect, three weeks of pay for weeks not worked — which raises the salaried worker's true rate per hour actually worked.</p>
+          <p>Hourly and contract roles sometimes compensate with a visibly higher rate precisely because those benefits are absent. The honest comparison converts everything to the same basis: annual cash, plus the value of benefits, divided by the hours you will actually work. Anything less is comparing a number with a package.</p>
+
+          <h2>Risk, budgeting and the shape of your year</h2>
+          <p>Think about where the risk sits. With a salary, the employer absorbs the risk of slow periods — you are paid the same in the dead week between holidays as in the busiest week of the year. With hourly pay, you absorb that risk, and you also capture the upside of busy periods. Which arrangement suits you depends on your financial cushion and your expenses. Fixed, unforgiving monthly costs — rent, a car payment, childcare — argue for the salary's steadiness, or at least for an emergency fund before choosing variable income. A worker with low fixed costs and a taste for intense, well-paid stretches followed by real time off may genuinely prefer the hourly shape of the year.</p>
+          <p>There is also a psychological difference people underestimate. Salaried work tends to blur the boundary of the working day; the job is "done when it's done." Hourly work draws a bright line — when the shift ends, the obligation ends, and any request beyond it is a paid request. Some people find the bright line restful. Others find clock-watching corrosive and prefer to be judged on output. Neither reaction is wrong, but both are worth knowing about yourself before you sign.</p>
+
+          <h2>Questions to ask before you choose</h2>
+          <ul>
+            <li>How many hours does this role actually take in a normal week — and in a bad week?</li>
+            <li>Is the role overtime-eligible, and how much overtime is typical, not theoretical?</li>
+            <li>How many days of paid time off are included, and do people actually take them?</li>
+            <li>What benefits come with the role, and what would they cost me to replace on my own?</li>
+            <li>How stable are the hours across the year — is there a slow season?</li>
+            <li>If I convert this offer with realistic hours using the <a href="#/">salary to hourly calculator</a>, what is the true rate?</li>
+          </ul>
+
+          <h2>The verdict</h2>
+          <p>There is no universal winner, and anyone who gives you one is selling something. Salary tends to win on stability, benefits and a cleaner boundary around money worries. Hourly tends to win on paid extra effort, overtime premiums and a cleaner boundary around your time. The right choice is the one that still looks right after you have converted both offers to an effective hourly rate with your real hours — the math in our <a href="#/guide/convert-salary-to-hourly-formula">conversion formula guide</a> takes about a minute, and it has a way of making the decision feel obvious.</p>
+        </article>
+      </main>
+
+      <!-- ================= ARTICLE 4 ================= -->
+      <main class="page" id="page-guide-compare-offers">
+        <article class="article prose">
+          <h1>How to Compare Two Job Offers with Different Pay Types</h1>
+          <p class="standfirst">A $74,000 salary versus $37 an hour — which pays more? Until both offers are in the same units and adjusted for time off, benefits and overtime, nobody knows. Here is the five-step method, with a full worked example.</p>
+
+          <h2>Step 1: Convert both offers to an annual figure</h2>
+          <p>Start by putting both offers on an annual basis, using realistic weeks. For the salaried offer, the annual figure is the salary itself. For the hourly offer, multiply the rate by weekly hours and by the weeks you will actually be paid for. If the hourly role is a contract with unpaid gaps, use the paid weeks, not 52. This is the reverse calculation from our <a href="#/guide/convert-salary-to-hourly-formula">formula guide</a>, and the <a href="#/">calculator</a> runs it in reverse mode.</p>
+
+          <h2>Step 2: Convert both to an effective hourly rate</h2>
+          <p>Annual totals hide the workload. Now divide each annual figure by the hours you will actually work — including the salaried job's realistic extra hours, which never appear in the offer letter. An offer that pays more per year but demands ten more hours a week may pay less for each hour of your life it consumes. The effective hourly rate is the single most honest number in the whole comparison.</p>
+
+          <h2>Step 3: Adjust for paid time off</h2>
+          <p>Paid vacation and holidays are pay for time not worked. If one offer includes four weeks of paid leave and the other includes none, the second offer's rate must be earned across more working weeks to match the same annual income — or, viewed the other way, matching the first offer's leisure with unpaid leave costs the second worker four weeks of pay. Price the difference: weeks of paid leave &times; weekly pay is a real dollar figure that belongs in the comparison.</p>
+
+          <h2>Step 4: Add the value of benefits and bonuses</h2>
+          <p>List what each package includes beyond cash pay: employer health premium contributions, retirement matches, bonuses, allowances, equipment, training budgets. Get a dollar estimate for each — HR departments will often provide the employer's premium contribution directly if asked. Add these to the annual figures. A retirement match alone is commonly worth 3–6% of salary; ignoring it can flip a close decision.</p>
+
+          <h2>Step 5: Factor in overtime and the costs of the job</h2>
+          <p>If the hourly role regularly works overtime at time-and-a-half, add the expected premium — the method is in our <a href="#/guide/overtime-pay-explained">overtime guide</a>. Then subtract the costs each job imposes: commuting distance and parking, required clothing or tools, and the schedule's effect on childcare. Small weekly costs compound; a $60-a-week difference in commuting is more than $3,000 a year.</p>
+
+          <h2>A full worked example</h2>
+          <p><strong>Offer A:</strong> a salaried role at $74,000 a year. Realistic week: 45 hours. Includes three weeks of paid vacation, employer health contribution worth about $5,400 a year, and a 4% retirement match ($2,960).</p>
+          <p><strong>Offer B:</strong> an hourly contract at $37 an hour, 40 hours a week, 50 paid weeks a year (two weeks unpaid between contract phases). No benefits. Overtime is rare.</p>
+          <p>Step 1, annual cash: Offer A pays $74,000. Offer B pays $37 &times; 40 &times; 50 = $74,000. A dead heat — which is exactly why headline comparisons fail.</p>
+          <p>Step 2, effective hourly rate: Offer A's realistic year is 45 hours &times; 49 working weeks (52 minus three weeks of vacation) = 2,205 hours worked, so $74,000 &divide; 2,205 = $33.56 per hour worked. Offer B works 40 &times; 50 = 2,000 hours, so $74,000 &divide; 2,000 = $37.00 per hour worked. The hourly offer pays $3.44 more for every hour actually worked.</p>
+          <p>Steps 3 and 4, benefits: Offer A adds $5,400 + $2,960 = $8,360 of benefit value, lifting its package to $82,360, or $37.35 per hour worked. Offer B stays at $37.00 — and its holder must also buy their own health coverage out of that figure, which would push the real comparison further in A's favor. Offer B would need overtime: roughly 150 hours a year at time-and-a-half (an extra $18.50 per overtime hour above the base already counted) would add about $2,775 and still not close the benefits gap.</p>
+          <p>Step 5, costs: if Offer B's site is across town and adds $45 a week in commuting across 50 weeks, that is another $2,250 against it. The verdict, on these facts: the salary wins on total value per hour worked, despite the identical headline pay and the hourly role's higher rate per hour — a result that surprises most people, and one you can only reach by doing all five steps.</p>
+
+          <h2>When the hourly offer wins instead</h2>
+          <p>Change two facts and the answer flips: give Offer B regular overtime — say five hours a week at time-and-a-half, worth an extra $4,625 a year over straight time — and shrink Offer A's benefits, and the contract pulls ahead, with the bonus of two genuinely free weeks a year that no employer can schedule over. The method does not favor either pay type; it favors whichever offer survives honest arithmetic. That is also the theme of our broader comparison of <a href="#/guide/salary-vs-hourly-pay">salary vs hourly pay</a>.</p>
+
+          <h2>A closing habit worth keeping</h2>
+          <p>Run this comparison again a year into whichever job you choose, using your real recorded hours. Employers' estimates of the working week are optimistic in both directions, and your own effective rate — salary divided by hours actually worked — is the number that tells you whether the deal you accepted is the deal you are getting.</p>
+        </article>
+      </main>
+
+      <!-- ================= ARTICLE 5 ================= -->
+      <main class="page" id="page-guide-overtime">
+        <article class="article prose">
+          <h1>Overtime Pay Explained: Time-and-a-Half and Double Time</h1>
+          <p class="standfirst">What "time-and-a-half" actually multiplies, who is entitled to it, when double time appears, and how premium hours change the true value of a salary or an hourly wage.</p>
+
+          <h2>The basic rule</h2>
+          <p>In the United States, the Fair Labor Standards Act (FLSA) requires that non-exempt employees be paid at least one and a half times their regular rate for every hour worked beyond 40 in a single workweek. That premium — universally nicknamed time-and-a-half — is calculated per workweek, not per day and not averaged across a pay period. A week of 46 hours contains six overtime hours, even if the following week is short. Some states add daily overtime rules on top, most notably for hours beyond eight in a single day, so your state's rules are worth checking alongside the federal floor.</p>
+
+          <h2>How the calculation works</h2>
+          <p>The premium applies to the <em>regular rate</em>, and the arithmetic has two equivalent forms. The simple form: pay the first 40 hours at the regular rate and the overtime hours at 1.5 times it. An employee at $20 an hour who works 46 hours earns 40 &times; $20 = $800, plus 6 &times; $30 = $180, for a weekly total of $980.</p>
+          <p>The other form separates the premium: all 46 hours at the straight rate ($920), plus a half-rate premium on the six overtime hours (6 &times; $10 = $60), again totaling $980. Employers' payroll systems often use the second form because it handles complicated pay structures more cleanly, and seeing both forms explains pay-stub lines that otherwise look like errors.</p>
+          <p>This is the same math the overtime line of our <a href="#/">salary to hourly calculator</a> uses: it takes your converted hourly rate, prices the hours beyond 40 per week at 1.5&times;, and shows what those hours add.</p>
+
+          <h2>Who is entitled — and who is not</h2>
+          <p>Entitlement turns on the exempt / non-exempt distinction. Non-exempt employees — most hourly workers, and salaried workers whose duties and pay fall below the regulatory thresholds — must receive overtime. Exempt employees, typically executive, administrative and professional staff paid on a salary basis above the threshold, have no legal right to it, however long the week runs. That is why two colleagues on similar total pay can experience a 50-hour week very differently, and why overtime eligibility is one of the first questions in our guide to <a href="#/guide/salary-vs-hourly-pay">salary vs hourly pay</a>.</p>
+          <p>Misclassification — treating a worker as exempt, or as an independent contractor, when the job's reality says otherwise — is one of the most common wage disputes, precisely because the overtime money at stake is substantial. If your duties look non-exempt but your pay stub never shows a premium, that is worth a careful look at the official rules or a conversation with your state labor agency.</p>
+
+          <h2>Double time</h2>
+          <p>Double time — twice the regular rate — is not required by federal law. It appears through three other doors: state law (California, for example, requires it for hours beyond 12 in a day and for extended seventh-consecutive-day work), collective bargaining agreements, and employer policy, where it is often offered for Sundays, holidays or emergency call-outs as a deliberate incentive. Where it applies, the arithmetic mirrors time-and-a-half: at $20 an hour, a double-time hour pays $40, or equivalently the straight rate plus a full-rate premium.</p>
+
+          <h2>Blended rates and tricky cases</h2>
+          <p>Real pay structures complicate the "regular rate." If an employee works two jobs at one employer at different rates, the overtime rate is generally based on the weighted average of the two. Bonuses, shift differentials and commissions often must be folded into the regular rate before the 1.5 multiplier is applied — which means a quarterly bonus can retroactively raise the overtime rate for weeks already worked, and payroll adjusts for it. Salaried non-exempt employees have their own variant: the salary is divided by the hours it was intended to cover to find the regular rate, and the premium is then applied on top.</p>
+
+          <h2>What overtime does to an annual figure</h2>
+          <p>Overtime is where hourly pay quietly outruns salary comparisons. Consider $24 an hour with a reliable eight overtime hours a week across 50 working weeks. Straight time on 40 hours gives $48,000. The overtime hours pay $36 each instead of $24 — an extra $12 an hour &times; 8 hours &times; 50 weeks = $4,800 of premium alone, and total earnings of $62,400. Someone comparing that job against a $58,000 salary using only the base rate would choose wrong. Our <a href="#/guide/compare-two-job-offers">job offer comparison guide</a> builds this adjustment in as a formal step, because for overtime-heavy workplaces it is frequently the deciding factor.</p>
+          <p>The reverse warning applies to salaried roles: if a salary was negotiated assuming 40-hour weeks but the job settles at 50, the effective hourly rate has fallen by 20% with no change in pay. Recomputing your rate with real hours once or twice a year — the formula is in our <a href="#/guide/convert-salary-to-hourly-formula">conversion guide</a> — is the simplest way to notice.</p>
+
+          <h2>The short version</h2>
+          <p>Time-and-a-half means hours past 40 in a week pay at least 1.5&times; your regular rate if you are non-exempt. Double time is a state-law, contract or policy extra at 2&times;. Both premiums are calculated on a regular rate that may include more than your base wage. And both can move an annual income by thousands of dollars — which is why no serious comparison of two jobs, and no honest conversion of a salary, is complete until the overtime question has been asked.</p>
+        </article>
+      </main>
+
+      <!-- ================= ABOUT ================= -->
+      <main class="page" id="page-about">
+        <section class="article prose plain-page">
+          <h1>About SalaryToHourlyHub</h1>
+          <p>SalaryToHourlyHub exists because of a simple frustration: pay is quoted in whatever unit makes it hardest to compare. One job advertises $68,000 a year, another advertises $33 an hour, a third quotes a monthly figure — and the person trying to choose between them is left doing long division on the back of an envelope, usually with the wrong number of hours.</p>
+          <p>This site does that division properly. The <a href="#/">salary to hourly calculator</a> converts in both directions — salary to hourly and hourly to salary — and breaks the result down into hourly, daily, weekly, bi-weekly and monthly figures, with an overtime line that prices hours beyond 40 a week at time-and-a-half. Unlike the common shortcut of dividing every salary by 2,080, the calculator asks for your real weekly hours and your real working weeks, because those two numbers are where almost all conversion errors live.</p>
+          <h2>Why we publish the guides</h2>
+          <p>A calculator gives you a number; it cannot tell you whether the number is good. That judgment needs context — how the <a href="#/guide/convert-salary-to-hourly-formula">conversion formula</a> works, where the <a href="#/guide/2080-hour-rule">2,080-hour rule</a> helps and where it misleads, how <a href="#/guide/salary-vs-hourly-pay">salary and hourly pay</a> really differ once benefits and risk are counted, how to <a href="#/guide/compare-two-job-offers">compare two offers</a> that pay in different units, and how <a href="#/guide/overtime-pay-explained">overtime</a> can quietly move an annual income by thousands of dollars. Our five guides cover exactly those questions, in plain prose, with worked examples whose arithmetic you can check.</p>
+          <h2>How the site works</h2>
+          <p>Everything here runs in your browser. The calculator performs its math on your device the moment you type — no account, no sign-up, and nothing you enter is sent to or stored on a server. The figures are gross pay before tax, because advertised salaries and wages are always quoted gross; your take-home pay will depend on your own tax situation, which no general calculator can know.</p>
+          <h2>What this site is not</h2>
+          <p>SalaryToHourlyHub is an educational tool, not financial, tax or legal advice. Pay rules — overtime thresholds, exemptions, state daily-overtime laws — vary by place and change over time. For decisions with legal or tax consequences, check the official rules for your state or country, or speak to a qualified professional. If you spot an error in our math or our guides, we genuinely want to hear about it: reach us through the <a href="#/contact">contact page</a>.</p>
+        </section>
+      </main>
+
+      <!-- ================= FAQ ================= -->
+      <main class="page" id="page-faq">
+        <section class="article prose plain-page">
+          <h1>Frequently Asked Questions</h1>
+          <p class="standfirst">The questions people ask most about converting pay. For the full method, see our guide to <a href="#/guide/convert-salary-to-hourly-formula">the salary-to-hourly formula</a>.</p>
+
+          <details class="faq">
+            <summary>How do I convert an annual salary to an hourly rate?</summary>
+            <p>Divide the salary by the number of hours you work in a year. Annual hours are your weekly hours times your working weeks — for a standard full-time job, 40 &times; 52 = 2,080 hours, so a $60,000 salary is $60,000 &divide; 2,080 = $28.85 an hour. The <a href="#/">calculator</a> does this with your own hours and weeks.</p>
+          </details>
+          <details class="faq">
+            <summary>What is the 2,080-hour rule?</summary>
+            <p>It is the assumption that a full-time year contains 2,080 working hours — 40 hours a week for 52 weeks. Payroll teams use it as a standard bridge between salaries and hourly rates. It is accurate for standard full-time schedules and misleading when you have unpaid leave, part-time hours or regular long weeks. Our <a href="#/guide/2080-hour-rule">2,080-hour rule guide</a> explains when to adjust it.</p>
+          </details>
+          <details class="faq">
+            <summary>How do I convert an hourly wage to an annual salary?</summary>
+            <p>Multiply the hourly rate by your hours per week, then by the weeks you work per year. At $25 an hour, 40 hours a week and 52 weeks, that is $25 &times; 40 &times; 52 = $52,000. Use the calculator's "Hourly &rarr; Salary" mode — and be honest about unpaid weeks, because they change the answer a lot.</p>
+          </details>
+          <details class="faq">
+            <summary>What is $50,000 a year in hourly pay?</summary>
+            <p>At the standard 2,080-hour year, $50,000 &divide; 2,080 = $24.04 an hour, $961.54 a week and about $4,167 a month. If your schedule differs — unpaid leave or longer weeks — the rate changes; enter your real hours in the calculator for your own figure.</p>
+          </details>
+          <details class="faq">
+            <summary>Why is bi-weekly pay not simply half of monthly pay?</summary>
+            <p>Because the year contains 26 bi-weekly periods but only 12 months. Two bi-weekly paychecks cover four weeks, while an average month is about 4.33 weeks, so a monthly paycheck is slightly larger than two bi-weekly ones. Across the full year both schedules pay the same annual salary.</p>
+          </details>
+          <details class="faq">
+            <summary>How is overtime calculated in the tool?</summary>
+            <p>Hours beyond 40 per week are priced at time-and-a-half — 1.5 times the hourly rate. If you enter 45 hours a week, the overtime line shows the five weekly overtime hours, what they pay, and what they add across your working year. The rules behind it are covered in <a href="#/guide/overtime-pay-explained">overtime pay explained</a>.</p>
+          </details>
+          <details class="faq">
+            <summary>Does the calculator account for taxes?</summary>
+            <p>No. All figures are gross pay before tax and deductions, matching how salaries and wages are advertised. Take-home pay depends on your tax bracket, state, filing status and deductions, which a general converter cannot determine.</p>
+          </details>
+          <details class="faq">
+            <summary>Should I use 52 weeks even if I get paid vacation?</summary>
+            <p>Yes, if your vacation is paid — your salary covers those weeks, so 52 keeps the pay and the hours describing the same year. Use fewer weeks only when time off is unpaid, or when the work itself runs fewer weeks, such as seasonal or contract work with gaps.</p>
+          </details>
+          <details class="faq">
+            <summary>Is salary or hourly pay better?</summary>
+            <p>Neither, universally. Salary usually wins on stability and benefits; hourly usually wins on paid overtime and a firm boundary around your time. The better test is converting both offers to an effective hourly rate with realistic hours — our guides on <a href="#/guide/salary-vs-hourly-pay">salary vs hourly pay</a> and <a href="#/guide/compare-two-job-offers">comparing job offers</a> walk through how.</p>
+          </details>
+          <details class="faq">
+            <summary>Is my data saved or sent anywhere?</summary>
+            <p>No. The calculator runs entirely in your browser; the numbers you type never leave your device, and there is no account to create. See our <a href="#/privacy">privacy policy</a> for the full picture.</p>
+          </details>
+        </section>
+      </main>
+
+      <!-- ================= CONTACT ================= -->
+      <main class="page" id="page-contact">
+        <section class="article prose plain-page">
+          <h1>Contact Us</h1>
+          <p>Questions about a calculation, a correction to one of the guides, or a suggestion for a conversion you would like the calculator to handle — we read everything and reply to as much as we can.</p>
+          <div class="contact-box">
+            <p style="margin-top:0;">The fastest way to reach the SalaryToHourlyHub team is by email:</p>
+            <p><a class="mail-link" href="mailto:contact@salarytohourlyhub.github.io">contact@salarytohourlyhub.github.io</a></p>
+            <p style="margin-bottom:0;">If you are reporting a math error, it helps to include the figures you entered (salary or hourly rate, hours per week, weeks per year) and the result you expected — that lets us reproduce the calculation exactly.</p>
+          </div>
+          <h2>Before you write</h2>
+          <p>Many common questions are already answered on the <a href="#/faq">FAQ page</a> — how the conversion works, why bi-weekly and monthly pay differ, and how the overtime line is calculated. For anything about how this site handles information, see the <a href="#/privacy">privacy policy</a>.</p>
+          <p>Please note that we cannot give personal financial, tax or legal advice, and we cannot verify what a specific employer owes a specific employee. For questions like those, your state labor agency or a qualified professional is the right destination — but we are always glad to explain the arithmetic.</p>
+        </section>
+      </main>
+
+      <!-- ================= PRIVACY ================= -->
+      <main class="page" id="page-privacy">
+        <section class="article prose plain-page">
+          <h1>Privacy Policy</h1>
+          <p><em>Last updated: November 22, 2026.</em></p>
+          <p>This policy explains what information SalaryToHourlyHub does and does not collect when you use this website.</p>
+          <h2>The calculator</h2>
+          <p>The salary to hourly calculator runs entirely in your web browser. The figures you enter — salary, hourly rate, hours and weeks — are processed on your own device and are never transmitted to us, stored by us, or shared with anyone. There are no accounts, no sign-ups and no forms that submit your pay information anywhere.</p>
+          <h2>What we collect</h2>
+          <p>We do not ask for or collect names, email addresses, pay details or any other personal information through the calculator or the guides. If you email us via the <a href="#/contact">contact page</a>, we receive the address you write from and the contents of your message, and we use them only to reply to you.</p>
+          <h2>Cookies and analytics</h2>
+          <p>This site may use privacy-respecting analytics to understand which pages and guides are useful, measured in aggregate — for example, how many people read the overtime guide — rather than to track individuals. Where advertising is shown, advertising partners may use cookies as described in their own policies; you can control cookies at any time through your browser settings.</p>
+          <h2>External links</h2>
+          <p>Pages on this site may link to external websites, such as government labor resources. We are not responsible for the privacy practices of those sites, and this policy does not apply to them.</p>
+          <h2>Changes to this policy</h2>
+          <p>If this policy changes, the updated version will be posted on this page with a new "last updated" date. Continued use of the site after a change means you accept the updated policy.</p>
+          <h2>Contact</h2>
+          <p>Questions about this policy can be sent through the <a href="#/contact">contact page</a>.</p>
+        </section>
+      </main>
+
+      <!-- ================= TERMS ================= -->
+      <main class="page" id="page-terms">
+        <section class="article prose plain-page">
+          <h1>Terms of Use</h1>
+          <p><em>Last updated: November 22, 2026.</em></p>
+          <p>By using SalaryToHourlyHub, you agree to these terms. If you do not agree, please do not use the site.</p>
+          <h2>Purpose of the site</h2>
+          <p>SalaryToHourlyHub provides a pay conversion calculator and educational guides about salary, hourly wages and overtime. The content is provided for general information and personal estimation only.</p>
+          <h2>Not professional advice</h2>
+          <p>Nothing on this site is financial, tax, legal or employment advice. Calculations are estimates based on the figures you enter and on simplified assumptions — for example, that pay is spread evenly across the working year and that overtime is paid at one and a half times the regular rate beyond 40 hours per week. Real payroll outcomes depend on your employer's policies, your employment classification, and the federal, state and local rules that apply to you. For decisions with financial or legal consequences, consult a qualified professional or the relevant government labor authority.</p>
+          <h2>Accuracy</h2>
+          <p>We work to keep the calculator's arithmetic and the guides' explanations correct, but we make no guarantee that results are complete, current or error-free, and we accept no liability for decisions made in reliance on them. If you believe you have found an error, please tell us via the <a href="#/contact">contact page</a>.</p>
+          <h2>Acceptable use</h2>
+          <p>You may use this site for personal, non-commercial estimation and learning. You may not use it in a way that disrupts the site, misrepresents its results as official payroll determinations, or violates applicable law.</p>
+          <h2>Intellectual property</h2>
+          <p>The text and design of this site belong to SalaryToHourlyHub unless otherwise stated. You may link to any page and quote short excerpts with attribution; republishing full guides requires permission.</p>
+          <h2>Changes</h2>
+          <p>We may update these terms from time to time; the current version will always be posted on this page with its date. Your continued use of the site after an update constitutes acceptance of the revised terms.</p>
+        </section>
+      </main>
+
+    </div><!-- /.wrap -->
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <h4>SalaryToHourlyHub</h4>
+          <p>A free salary to hourly calculator with a reverse hourly-to-salary mode, an overtime breakdown, and plain-English guides on pay conversion — so you can compare jobs in the same units and know what an hour of your work is worth.</p>
+        </div>
+        <div>
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="#/guide/convert-salary-to-hourly-formula">The Conversion Formula</a></li>
+            <li><a href="#/guide/2080-hour-rule">The 2,080-Hour Rule</a></li>
+            <li><a href="#/guide/salary-vs-hourly-pay">Salary vs Hourly Pay</a></li>
+            <li><a href="#/guide/compare-two-job-offers">Comparing Job Offers</a></li>
+            <li><a href="#/guide/overtime-pay-explained">Overtime Pay Explained</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul>
+            <li><a href="#/">Calculator</a></li>
+            <li><a href="#/about">About</a></li>
+            <li><a href="#/faq">FAQ</a></li>
+            <li><a href="#/contact">Contact</a></li>
+            <li><a href="#/privacy">Privacy Policy</a></li>
+            <li><a href="#/terms">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 SalaryToHourlyHub. All figures are gross pay estimates for education only — not financial or legal advice.</div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+
+        /* ---------- Router ---------- */
+        var routes = {
+          "/": "page-home",
+          "/guides": "page-guides",
+          "/guide/convert-salary-to-hourly-formula": "page-guide-convert",
+          "/guide/2080-hour-rule": "page-guide-2080",
+          "/guide/salary-vs-hourly-pay": "page-guide-salary-vs-hourly",
+          "/guide/compare-two-job-offers": "page-guide-compare-offers",
+          "/guide/overtime-pay-explained": "page-guide-overtime",
+          "/about": "page-about",
+          "/faq": "page-faq",
+          "/contact": "page-contact",
+          "/privacy": "page-privacy",
+          "/terms": "page-terms"
+        };
+        var titles = {
+          "/": "Salary to Hourly Calculator — Convert Annual Salary to Hourly Pay | SalaryToHourlyHub",
+          "/guides": "Pay Conversion Guides | SalaryToHourlyHub",
+          "/guide/convert-salary-to-hourly-formula": "How to Convert Salary to Hourly: The Formula | SalaryToHourlyHub",
+          "/guide/2080-hour-rule": "What Is the 2,080-Hour Rule? | SalaryToHourlyHub",
+          "/guide/salary-vs-hourly-pay": "Salary vs Hourly Pay: Which Is Better for You? | SalaryToHourlyHub",
+          "/guide/compare-two-job-offers": "How to Compare Two Job Offers with Different Pay Types | SalaryToHourlyHub",
+          "/guide/overtime-pay-explained": "Overtime Pay Explained: Time-and-a-Half and Double Time | SalaryToHourlyHub",
+          "/about": "About | SalaryToHourlyHub",
+          "/faq": "Frequently Asked Questions | SalaryToHourlyHub",
+          "/contact": "Contact | SalaryToHourlyHub",
+          "/privacy": "Privacy Policy | SalaryToHourlyHub",
+          "/terms": "Terms of Use | SalaryToHourlyHub"
+        };
+        var navFor = {
+          "/": "home",
+          "/guides": "guides",
+          "/guide/convert-salary-to-hourly-formula": "guides",
+          "/guide/2080-hour-rule": "guides",
+          "/guide/salary-vs-hourly-pay": "guides",
+          "/guide/compare-two-job-offers": "guides",
+          "/guide/overtime-pay-explained": "guides",
+          "/about": "about",
+          "/faq": "faq",
+          "/contact": "contact",
+          "/privacy": "",
+          "/terms": ""
+        };
+
+        function currentPath() {
+          var hash = window.location.hash || "#/";
+          var path = hash.replace(/^#/, "");
+          if (path === "" ) path = "/";
+          if (!routes[path]) path = "/";
+          return path;
+        }
+
+        function render() {
+          var path = currentPath();
+          var pages = document.querySelectorAll(".page");
+          for (var i = 0; i < pages.length; i++) {
+            pages[i].classList.toggle("active", pages[i].id === routes[path]);
+          }
+          document.title = titles[path];
+          var navLinks = document.querySelectorAll("[data-nav]");
+          for (var j = 0; j < navLinks.length; j++) {
+            navLinks[j].classList.toggle("active", navLinks[j].getAttribute("data-nav") === navFor[path]);
+          }
+          window.scrollTo(0, 0);
+        }
+
+        window.addEventListener("hashchange", render);
+
+        /* ---------- Calculator ---------- */
+        var mode = "salary"; // "salary": salary -> hourly, "hourly": hourly -> salary
+        var primaryInput = document.getElementById("input-primary");
+        var hoursInput = document.getElementById("input-hours");
+        var weeksInput = document.getElementById("input-weeks");
+        var primaryLabel = document.getElementById("label-primary");
+        var primaryHint = document.getElementById("hint-primary");
+        var btnSalary = document.getElementById("mode-salary");
+        var btnHourly = document.getElementById("mode-hourly");
+
+        var money = new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+
+        function num(el, fallback) {
+          var v = parseFloat(el.value);
+          return isFinite(v) && v >= 0 ? v : fallback;
+        }
+
+        function setMode(next) {
+          if (mode === next) return;
+          // Keep the calculation continuous: convert the current primary value.
+          var hours = Math.max(num(hoursInput, 40), 0.01);
+          var weeks = Math.max(num(weeksInput, 52), 0.01);
+          var current = num(primaryInput, 0);
+          if (next === "hourly") {
+            primaryInput.value = (current / (hours * weeks)).toFixed(2);
+          } else {
+            primaryInput.value = Math.round(current * hours * weeks);
+          }
+          mode = next;
+          btnSalary.classList.toggle("selected", mode === "salary");
+          btnHourly.classList.toggle("selected", mode === "hourly");
+          if (mode === "salary") {
+            primaryLabel.textContent = "Annual salary (before tax)";
+            primaryHint.textContent = "Your gross yearly pay, before taxes and deductions.";
+          } else {
+            primaryLabel.textContent = "Hourly rate (before tax)";
+            primaryHint.textContent = "Your gross pay per hour, before taxes and deductions.";
+          }
+          calculate();
+        }
+
+        function calculate() {
+          var primary = num(primaryInput, 0);
+          var hoursPerWeek = num(hoursInput, 40);
+          var weeksPerYear = num(weeksInput, 52);
+          if (hoursPerWeek <= 0) hoursPerWeek = 40;
+          if (weeksPerYear <= 0) weeksPerYear = 52;
+
+          var annualHours = hoursPerWeek * weeksPerYear;
+          var hourly, annual;
+          if (mode === "salary") {
+            annual = primary;
+            hourly = annualHours > 0 ? annual / annualHours : 0;
+          } else {
+            hourly = primary;
+            annual = hourly * annualHours;
+          }
+
+          var weekly = hourly * hoursPerWeek;
+          var biweekly = weekly * 2;
+          var monthly = annual / 12;
+          var hoursPerDay = hoursPerWeek / 5;
+          var daily = hourly * hoursPerDay;
+
+          document.getElementById("r-hourly").textContent = money.format(hourly);
+          document.getElementById("r-daily").textContent = money.format(daily);
+          document.getElementById("r-weekly").textContent = money.format(weekly);
+          document.getElementById("r-biweekly").textContent = money.format(biweekly);
+          document.getElementById("r-monthly").textContent = money.format(monthly);
+          document.getElementById("r-annual").textContent = money.format(annual);
+
+          var headline = document.getElementById("result-headline");
+          var headlineLabel = document.getElementById("result-headline-label");
+          if (mode === "salary") {
+            headline.textContent = money.format(hourly);
+            headlineLabel.textContent = "per hour";
+          } else {
+            headline.textContent = money.format(annual);
+            headlineLabel.textContent = "per year";
+          }
+
+          /* Overtime line: time-and-a-half beyond 40 hours/week */
+          var otRate = hourly * 1.5;
+          var otHours = Math.max(hoursPerWeek - 40, 0);
+          var otLine = document.getElementById("ot-line");
+          if (otHours > 0) {
+            var otWeekly = otHours * otRate;
+            var premiumWeekly = otHours * hourly * 0.5;
+            var otYearly = otWeekly * weeksPerYear;
+            otLine.innerHTML =
+              "<strong>Overtime:</strong> " + trimNum(otHours) + " hrs/week over 40 are paid at time-and-a-half (" +
+              money.format(otRate) + "/hr) = " + money.format(otWeekly) + " per week, or " +
+              money.format(otYearly) + " across " + trimNum(weeksPerYear) + " weeks. That includes a premium of " +
+              money.format(premiumWeekly * weeksPerYear) + " a year above straight-time pay for those hours.";
+          } else {
+            otLine.innerHTML =
+              "<strong>Overtime:</strong> at 40 hours a week or fewer there is no overtime. If you worked extra hours, they would pay time-and-a-half at " +
+              money.format(otRate) + "/hr. Enter more than 40 hours per week above to see the overtime breakdown.";
+          }
+        }
+
+        function trimNum(v) {
+          return (Math.round(v * 100) / 100).toString();
+        }
+
+        btnSalary.addEventListener("click", function () { setMode("salary"); });
+        btnHourly.addEventListener("click", function () { setMode("hourly"); });
+        primaryInput.addEventListener("input", calculate);
+        hoursInput.addEventListener("input", calculate);
+        weeksInput.addEventListener("input", calculate);
+
+        render();
+        calculate();
+      })();
+    </script>
+  </body>
+</html>
